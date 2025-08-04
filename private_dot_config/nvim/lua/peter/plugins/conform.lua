@@ -42,6 +42,9 @@ return {
         },
         ---@type conform.setupOpts
         opts = {
+            default_format_opts = {
+                lsp_format = "fallback",
+            },
             formatters_by_ft = {
                 lua = { "stylua" },
                 javascript = { "prettierd", "prettier", stop_after_first = true },
@@ -58,7 +61,6 @@ return {
 
                 return {
                     timeout_ms = 500,
-                    lsp_format = "fallback",
                 }
             end,
         },
