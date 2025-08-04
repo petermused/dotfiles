@@ -1,0 +1,12 @@
+#:schema https://docs.jj-vcs.dev/latest/config-schema.json
+
+[ui]
+{{ if eq .git.editor "nvim" -}}
+editor = "nvim"
+{{- else if eq .git.editor "code" -}}
+{{ if eq .chezmoi.os "windows" -}}
+editor = "code.cmd -w"
+{{- else -}}
+editor = "code -w"
+{{ end -}}
+{{- end }}
