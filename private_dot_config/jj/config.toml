@@ -47,6 +47,14 @@ tug = [
     "--to",
     "closest_pushable(@)",
 ]
+# Rebases all mutable branches that are descendents of `::trunk()` onto `trunk()`
+restack = [
+    "rebase",
+    "-s",
+    "roots(trunk()..) & mutable()",
+    "-o",
+    "trunk()",
+]
 
 [template-aliases]
 "format_short_signature(signature)" = "signature.name()"
