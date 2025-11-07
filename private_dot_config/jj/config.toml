@@ -37,24 +37,12 @@ auto-track-created-bookmarks = "*"
 # Closest commit that can be pushed
 "closest_pushable(to)" = 'heads(::to & mutable() & ~description(exact:"") & ~blacklist() & (~empty() | merges()))'
 
+[revsets]
+bookmark-advance-to = "closest_pushable(@)"
+
 [aliases]
-# Find the closest ancestor with a bookmark, and move the bookmark to the parent of the working copy
-tug = [
-    "bookmark",
-    "move",
-    "--from",
-    "heads(::@- & bookmarks())",
-    "--to",
-    "closest_pushable(@)",
-]
 # Rebases all mutable branches that are descendents of `::trunk()` onto `trunk()`
-restack = [
-    "rebase",
-    "-s",
-    "roots(trunk()..) & mutable()",
-    "-o",
-    "trunk()",
-]
+restack = ["rebase", "-s", "roots(trunk()..) & mutable()", "-o", "trunk()"]
 
 [template-aliases]
 "format_short_signature(signature)" = "signature.name()"
