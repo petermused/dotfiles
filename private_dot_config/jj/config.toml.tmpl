@@ -1,3 +1,5 @@
+#:schema https://docs.jj-vcs.dev/latest/config-schema.json
+
 [user]
 name = {{ .git.name | quote }}
 email = {{ .git.email | quote }}
@@ -21,8 +23,14 @@ diff-editor = ":builtin"
 [merge-tools.diffconflicts]
 program = "nvim"
 merge-args = [
-    "-c", "let g:jj_diffconflicts_marker_length=$marker_length",
-    "-c", "JJDiffConflicts!", "$output", "$base", "$left", "$right",
+    "-c",
+    "let g:jj_diffconflicts_marker_length=$marker_length",
+    "-c",
+    "JJDiffConflicts!",
+    "$output",
+    "$base",
+    "$left",
+    "$right",
 ]
 merge-tool-edits-conflict-markers = true
 
@@ -42,7 +50,14 @@ private-commits = "blacklist()"
 
 [aliases]
 # Find the closest ancestor with a bookmark, and move the bookmark to the parent of the working copy
-tug = ["bookmark", "move", "--from", "heads(::@- & bookmarks())", "--to", "closest_pushable(@)"]
+tug = [
+    "bookmark",
+    "move",
+    "--from",
+    "heads(::@- & bookmarks())",
+    "--to",
+    "closest_pushable(@)",
+]
 
 [template-aliases]
 "format_short_signature(signature)" = "signature.name()"
