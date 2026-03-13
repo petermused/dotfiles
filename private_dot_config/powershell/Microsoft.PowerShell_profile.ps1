@@ -1,3 +1,5 @@
+# FIXME: Move to new location once PowerShell 7.7 is released: https://devblogs.microsoft.com/powershell/powershell-openssh-and-dsc-team-investments-for-2026/
+
 New-Alias which Get-Command
 New-Alias touch New-Item
 
@@ -27,6 +29,8 @@ if (Get-Command eza -ErrorAction SilentlyContinue) {
     Remove-Alias ls
 
     <#
+    FIXME: This situation is supposed to get better in PowerShell 7.7
+
     Unlike other shells, you cannot create PowerShell aliases for commands with
     multiple parameters:
 
@@ -57,4 +61,11 @@ if (Get-Command eza -ErrorAction SilentlyContinue) {
 
 if (Get-Command lazygit -ErrorAction SilentlyContinue) {
     New-Alias lg lazygit
+}
+
+if (Get-Command jj -ErrorAction SilentlyContinue) {
+    # https://docs.jj-vcs.dev/latest/install-and-setup/#powershell
+    $env:COMPLETE = "powershell"
+    jj | Out-String | Invoke-Expression
+    Remove-Item Env:\COMPLETE
 }
