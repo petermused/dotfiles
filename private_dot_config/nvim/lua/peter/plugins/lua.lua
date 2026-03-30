@@ -3,7 +3,6 @@
 return {
     {
         "folke/lazydev.nvim",
-        version = "*",
         ft = { "lua" },
         opts = {
             library = {
@@ -11,7 +10,10 @@ return {
                 { path = "wezterm-types", mods = { "wezterm" } },
             },
         },
+        config = true,
+        dependencies = {
+            "Bilal2453/luvit-meta",
+            "DrKJeff16/wezterm-types",
+        },
     },
-    { "Bilal2453/luvit-meta" },
-    { "justinsgithub/wezterm-types" },
 }

@@ -1,16 +1,13 @@
--- I use `@as` instead of `@type` here because the wezterm types erroneously set
--- the return type of `require("wezterm")` to `Config`, which causes a type error.
-local wezterm = require("wezterm") --[[@as peter.Wezterm]]
+local wezterm = require("wezterm") ---@type Wezterm
 
 local splits = require("peter.splits")
 local tabbar = require("peter.tabbar")
 local utils = require("peter.utils")
 
-local config = wezterm.config_builder()
+local config = wezterm.config_builder() ---@type Config
 
 -- Appearance
 
----@diagnostic disable: missing-fields
 local font = wezterm.font_with_fallback {
     {
         family = "CommitMono Nerd Font",
@@ -22,7 +19,6 @@ local font = wezterm.font_with_fallback {
     { family = "Noto Color Emoji" },
     { family = "Symbols Nerd Font Mono" },
 }
----@diagnostic enable: missing-fields
 
 config.font = font
 config.font_size = 12
@@ -43,11 +39,9 @@ config.initial_rows = 30
 config.initial_cols = 120
 config.scrollback_lines = 100000
 
----@diagnostic disable: missing-fields
 config.window_frame = {
     font = font,
 }
----@diagnostic enable: missing-fields
 
 -- Focus window on startup
 wezterm.on("gui-startup", function(cmd)

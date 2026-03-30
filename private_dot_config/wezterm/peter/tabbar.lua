@@ -1,10 +1,10 @@
-local wezterm = require("wezterm") --[[@as peter.Wezterm]]
+local wezterm = require("wezterm") --[[@as Wezterm]]
 
 local utils = require("peter.utils")
 
 local M = {}
 
----@param effective_config peter.Config
+---@param effective_config Config
 ---@return table<string, string>
 local function tab_bar_color_scheme(effective_config)
     local color_scheme = effective_config.resolved_palette
@@ -20,7 +20,7 @@ local function tab_bar_color_scheme(effective_config)
     }
 end
 
----@param tab peter.TabInformation
+---@param tab TabInformation
 ---@return string
 local function tab_title(tab)
     local title = tab.tab_title
@@ -34,7 +34,7 @@ local function tab_title(tab)
     return tab.active_pane.title
 end
 
----@param tab peter.TabInformation
+---@param tab TabInformation
 ---@return string
 local function tab_domain_icon(tab)
     -- TODO: Show bell icon in tab title using "bell" event
@@ -78,7 +78,13 @@ local function tab_domain_icon(tab)
     return " " -- Default domain icon if we can't determine the domain type
 end
 
----@type peter.CallbackFormatTabTitle
+---@param tab TabInformation
+---@param tabs TabInformation[]
+---@param panes PaneInformation[]
+---@param effective_config Config
+---@param hover boolean
+---@param max_width number
+---@return string|FormatItem
 function M.format_tab_title(tab, tabs, panes, effective_config, hover, max_width)
     local _tabs = tabs
     local _panes = panes
@@ -126,7 +132,6 @@ function M.format_tab_title(tab, tabs, panes, effective_config, hover, max_width
         fg = tab_bar_colors.fg_b
     end
 
-    ---@type FormatItem[]
     return {
         { Background = { Color = bg } },
         { Foreground = { Color = fg } },
@@ -134,7 +139,7 @@ function M.format_tab_title(tab, tabs, panes, effective_config, hover, max_width
     }
 end
 
----@type peter.CallbackUpdateStatus
+---@type CallbackWindowPane
 function M.update_status(window, pane)
     local _pane = pane
 

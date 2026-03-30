@@ -31,7 +31,6 @@ return {
                 "javascript",
                 "jsdoc",
                 "json",
-                "jsonc",
                 "just",
                 "nix",
                 "powershell",

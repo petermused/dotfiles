@@ -10,11 +10,10 @@ return {
                 notify_user_on_venv_activation = true,
             },
         },
-        dependencies = {
-            "neovim/nvim-lspconfig",
-            -- TODO
-            -- "mfussenegger/nvim-dap",
-            -- "mfussenegger/nvim-dap-python",
-        },
+        -- TODO
+        -- dependencies = {
+        --     "mfussenegger/nvim-dap",
+        --     "mfussenegger/nvim-dap-python",
+        -- },
     },
 }

@@ -1,4 +1,4 @@
-local wezterm = require("wezterm") --[[@as peter.Wezterm]]
+local wezterm = require("wezterm") --[[@as Wezterm]]
 
 local M = {}
 
