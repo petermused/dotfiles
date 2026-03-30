@@ -17,6 +17,7 @@ return {
                 "vimdoc",
                 "markdown",
 
+                "bash",
                 "css",
                 "diff",
                 "dockerfile",
