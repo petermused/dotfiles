@@ -17,6 +17,19 @@ return {
             styles = {
                 conditionals = {},
             },
+            lsp_styles = {
+                virtual_text = {},
+                underlines = {
+                    errors = { "undercurl" },
+                    warnings = { "undercurl" },
+                    information = { "undercurl" },
+                    hints = { "underline" },
+                    ok = { "underline" },
+                },
+                inlay_hints = {
+                    background = false,
+                },
+            },
             default_integrations = false,
             integrations = {
                 blink_cmp = true,
@@ -29,22 +42,7 @@ return {
                 mini = {
                     enabled = true,
                 },
-                native_lsp = {
-                    enabled = true,
-                    virtual_text = {},
-                    underlines = {
-                        errors = { "undercurl" },
-                        warnings = { "undercurl" },
-                        information = { "undercurl" },
-                        hints = { "underline" },
-                        ok = { "underline" },
-                    },
-                    inlay_hints = {
-                        background = false,
-                    },
-                },
                 nvim_surround = true,
-                treesitter = true,
                 treesitter_context = true,
                 which_key = true,
             },
@@ -56,7 +54,7 @@ return {
         },
         config = function(_, opts)
             require("catppuccin").setup(opts)
-            vim.cmd.colorscheme("catppuccin")
+            vim.cmd.colorscheme("catppuccin-nvim")
         end,
     },
 }
