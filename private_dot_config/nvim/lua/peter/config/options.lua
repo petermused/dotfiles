@@ -7,7 +7,7 @@ vim.o.confirm = true -- Open confirm dialog when there are unsaved changes
 vim.o.updatetime = 250 -- Trigger CursorHold etc. after 250ms
 vim.o.title = true -- Display filename etc. in the title of the window
 vim.o.laststatus = 3 -- Use global statusline
--- FIXME: Set `:h 'winborder'` to "rounded" once more plugins support it
+vim.o.winborder = "rounded"
 vim.g.health = { style = "float" } -- Show `:checkhealth` output in a floating window instead of a tab
 
 -- Editor UI

@@ -58,6 +58,7 @@
 [diff]
 	algorithm = histogram
 	mnemonicPrefix = true
+	# TODO: Use :DiffTool in nvim
 	{{- if eq .git.editor "nvim" }}
 	tool = nvimdiff
 	{{- else if eq .git.editor "code" }}

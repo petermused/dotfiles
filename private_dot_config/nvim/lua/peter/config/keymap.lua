@@ -35,9 +35,6 @@ vim.keymap.set("i", ".", ".<C-g>u")
 vim.keymap.set("i", "!", "!<C-g>u")
 vim.keymap.set("i", "?", "?<C-g>u")
 
--- LSP keymaps
-vim.keymap.set("n", "<leader>cl", vim.lsp.codelens.run, { desc = "Run code lens" })
-
 -- TODO: Keybind to see all the definitions? e.g. 1gd?
 -- Go to definition should always jump to the first definition
 vim.keymap.set("n", "gd", function()

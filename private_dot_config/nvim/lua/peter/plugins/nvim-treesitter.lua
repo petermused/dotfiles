@@ -29,6 +29,7 @@ return {
                 "gitignore",
                 "html",
                 "javascript",
+                "jjdescription",
                 "jsdoc",
                 "json",
                 "just",
