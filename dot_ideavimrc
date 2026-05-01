@@ -66,7 +66,7 @@ map grg <Action>(Generate)
 map gO <Action>(ActivateStructureToolWindow)
 map gx <Action>(ClickLink)
 
-map <leader>cd <Action>(ShowErrorDescription)
+map <C-W>d <Action>(ShowErrorDescription)
 map <leader>cf <Action>(SilentCodeCleanup)
 map <leader>ch <Action>(CIDR.Lang.SwitchHeaderSource)
 map <leader>z <Action>(ToggleDistractionFreeMode)
