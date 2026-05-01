@@ -4,14 +4,13 @@ New-Alias which Get-Command
 New-Alias touch New-Item
 
 if (Get-Command starship -ErrorAction SilentlyContinue) {
-    # See https://wezfurlong.org/wezterm/shell-integration.html#osc-7-on-windows-with-powershell-with-starship
-    $prompt = ""
+    # See https://learn.microsoft.com/en-us/windows/terminal/tutorials/new-tab-same-directory
     function Invoke-Starship-PreCommand {
-        $current_location = $executionContext.SessionState.Path.CurrentLocation
-        if ($current_location.Provider.Name -eq "FileSystem") {
-            $ansi_escape = [char]27
-            $provider_path = $current_location.ProviderPath -replace "\\", "/"
-            $prompt = "$ansi_escape]7;file://${env:COMPUTERNAME}/${provider_path}$ansi_escape\"
+        $loc = $executionContext.SessionState.Path.CurrentLocation;
+        $prompt = "$([char]27)]9;12$([char]7)"
+        if ($loc.Provider.Name -eq "FileSystem")
+        {
+            $prompt += "$([char]27)]9;9;`"$($loc.ProviderPath)`"$([char]27)\"
         }
         $host.ui.Write($prompt)
     }
