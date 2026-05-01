@@ -41,6 +41,8 @@ auto-track-created-bookmarks = "*"
 bookmark-advance-to = "closest_pushable(@)"
 
 [aliases]
+# Creates a new commit on top of `trunk()`
+nt = ["new", "trunk()"]
 # Rebases all mutable branches that are descendents of `::trunk()` onto `trunk()`
 restack = ["rebase", "-s", "roots(trunk()..) & mutable()", "-o", "trunk()"]
 
