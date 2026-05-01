@@ -21,7 +21,7 @@ if (Get-Command starship -ErrorAction SilentlyContinue) {
 if (Get-Command zoxide -ErrorAction SilentlyContinue) {
     Remove-Alias cd
     New-Alias cd z
-    Invoke-Expression (& { (zoxide init powershell --hook prompt | Out-String) })
+    Invoke-Expression (& { (zoxide init powershell | Out-String) })
 }
 
 if (Get-Command eza -ErrorAction SilentlyContinue) {
